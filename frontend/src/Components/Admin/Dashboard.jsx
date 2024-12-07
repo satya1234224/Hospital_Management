@@ -13,12 +13,10 @@ import AddDoctor from './components/AddDoctor';
 import ChatDashboard from './components/chat/ChatDashboard';
 
 const Dashboard = () => {
-  const [theme, colorMode] = useMode();
+  
 
   return (
-    <ColorModeContext.Provider value={colorMode}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
+   
         <div
           style={{
             display: 'flex',
@@ -54,8 +52,7 @@ const Dashboard = () => {
             </main>
           </div>
         </div>
-      </ThemeProvider>
-    </ColorModeContext.Provider>
+    
   );
 }
 

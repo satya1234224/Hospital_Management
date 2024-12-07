@@ -32,16 +32,15 @@ function LoginForm() {
       if (token && is_admin === "false") {
         navigate("/");
         window.location.reload("true");
-        toast.success("login successfully");
+        toast.success("Login successfully");
       }
       if (token && is_admin === "true") {
         navigate("/");
         window.location.reload("true");
-
-        toast.success(" admin login successfully");
+        toast.success("Admin login successfully");
       }
     } catch (error) {
-      toast.error(error);
+      toast.error(error.message || "Something went wrong");
     }
   };
 
@@ -52,7 +51,7 @@ function LoginForm() {
 
   const myStyle = {
     backgroundImage: `url(${background})`,
-    height: '70vh',
+    height: '100vh',
     margin: 0,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
@@ -62,7 +61,7 @@ function LoginForm() {
     justifyContent: 'center',
     alignItems: 'center',
   };
-  
+
   const boxStyle = {
     backdropFilter: 'blur(15px)',
     backgroundColor: 'rgba(255, 255, 255, 0.7)',
@@ -73,76 +72,62 @@ function LoginForm() {
     maxWidth: '400px',
   };
 
-
   return (
     <div style={myStyle}>
-    <Box >
-      <Container
-      
-        maxWidth="xs"
-        style={boxStyle}
-        
-      >
-        <Typography variant="h4" align="center" gutterBottom>
-          Login
-        </Typography>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={onSubmit}
-        >
-          <Form>
-            <Grid sx={{
-              
-            
+      <Box>
+        <Container maxWidth="xs" style={boxStyle}>
+          <Typography variant="h4" align="center" gutterBottom>
+            Login
+          </Typography>
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={onSubmit}
+          >
+            <Form>
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <Field
+                    as={TextField}
+                    type="text"
+                    label="Username"
+                    variant="outlined"
+                    name="username"
+                    fullWidth
+                    error={false}
+                    helperText={<ErrorMessage name="username" />}
+                    aria-describedby="username-error"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <Field
+                    as={TextField}
+                    type="password"
+                    label="Password"
+                    variant="outlined"
+                    name="password"
+                    fullWidth
+                    error={false}
+                    helperText={<ErrorMessage name="password" />}
+                    aria-describedby="password-error"
+                  />
+                </Grid>
 
-            }} container spacing={2}>
-              <Grid item xs={12}>
-                <Field
-                  as={TextField}
-                  type="text"
-                  label="Username"
-                  variant="outlined"
-                  name="username"
-                  fullWidth
-                />
-                <Box
-
-                  sx={{ color: "red" }}
-                >
-                  <ErrorMessage name="username" />
-                </Box>
-                
+                <Grid item xs={12}>
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                    fullWidth
+                    sx={{ marginTop: "16px" }}
+                  >
+                    Login
+                  </Button>
+                </Grid>
               </Grid>
-              <Grid item xs={12}>
-                <Field
-                  as={TextField}
-                  type="password"
-                  label="Password"
-                  variant="outlined"
-                  name="password"
-                  fullWidth
-                />
-                <Box sx={{ color: "red" }}>
-                  <ErrorMessage name="password" />  
-                </Box>
-              
-              </Grid>
-
-              <Grid item xs={12}>
-                <Button
-                  type="submit"
-                  variant="contained"
-                  color="primary"
-                  fullWidth
-                >
-                  Login
-                </Button>
-              </Grid>
-            </Grid>
-          </Form>
-        </Formik>
-      </Container>
+            </Form>
+          </Formik>
+        </Container>
       </Box>
     </div>
   );
