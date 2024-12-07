@@ -30,7 +30,7 @@ const [selectedDate, setSelectedDate] = useState(new Date());
 
  const fetchdata = async () => {
     try {
-      const response = await axios.get(`http://localhost:8080/single/${id}`, {
+      const response = await axios.get(`https://hospital-management-stam.onrender.com/single/${id}`, {
         headers: {
           'Content-Type': 'application/json',
           authorization: localStorage.getItem('jwt'),
@@ -53,7 +53,7 @@ const handlesave=async()=>{
   }
   try {
 
-    const response = await axios.patch(`http://localhost:8080/update-date`, {_id:id,date:selectedDate}, {
+    const response = await axios.patch(`https://hospital-management-stam.onrender.com/update-date`, {_id:id,date:selectedDate}, {
       headers: {
         'Content-Type': 'application/json',
         authorization: localStorage.getItem('jwt'),
@@ -76,7 +76,7 @@ const handlesave=async()=>{
     e.preventDefault();
 
     try {
-        const response = await axios.patch(`http://localhost:8080/update-medicine`, {_id:id,medicine,about}, {
+        const response = await axios.patch(`https://hospital-management-stam.onrender.com/update-medicine`, {_id:id,medicine,about}, {
           headers: {
             'Content-Type': 'application/json',
             authorization: localStorage.getItem('jwt'),
