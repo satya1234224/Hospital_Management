@@ -40,7 +40,7 @@ const AddDoctorForm = () => {
 
   const fetchdoctor=async()=>{
     try {
-        const response= await axios.get('http://localhost:8080/doctor-single',{
+        const response= await axios.get('https://hospital-management-stam.onrender.com/doctor-single',{
             headers: {
 
                 "authorization": localStorage.getItem("jwt")
@@ -87,7 +87,7 @@ const AddDoctorForm = () => {
     try {
       const doctorData = { name, image,contact,email,desc,ammount };
      
-     const response=  await axios.patch('http://localhost:8080/doctor-update', doctorData,{
+     const response=  await axios.patch('https://hospital-management-stam.onrender.com/doctor-update', doctorData,{
         headers: {
             
             "authorization": localStorage.getItem("jwt")
