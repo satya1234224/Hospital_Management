@@ -43,7 +43,7 @@ const columns = [
        
         try {
           await axios.delete(
-            `http://localhost:8080/doctor/${params.row._id}`,
+            `https://hospital-management-stam.onrender.com/doctor/${params.row._id}`,
             {
               headers: {
                 "Content-Type": "application/json",
@@ -86,7 +86,7 @@ export default function DataGridDemo() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/public/doctor", {
+      const response = await axios.get("https://hospital-management-stam.onrender.com/public/doctor", {
         headers: {
           "Content-Type": "application/json",
           authorization: localStorage.getItem("jwt"),
