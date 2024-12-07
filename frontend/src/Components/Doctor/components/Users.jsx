@@ -16,7 +16,7 @@ export default function Users() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/appointments', {
+      const response = await axios.get('https://hospital-management-stam.onrender.com/appointments', {
         headers: {
           'Content-Type': 'application/json',
           authorization: localStorage.getItem('jwt'),
