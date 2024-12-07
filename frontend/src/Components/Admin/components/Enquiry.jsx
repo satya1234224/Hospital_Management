@@ -12,7 +12,7 @@ export default function Enquery() {
   
     const fetchEnquery = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/userquery', {
+        const response = await axios.get('https://hospital-management-stam.onrender.com/userquery', {
           headers: {
             'Content-Type': 'application/json',
             authorization: localStorage.getItem('jwt'),
